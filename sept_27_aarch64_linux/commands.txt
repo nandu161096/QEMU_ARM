@@ -12,3 +12,23 @@ wget \
 curl \
 tree \
 busybox-static
+
+qemu-system-aarch64 \
+  -machine virt \
+  -cpu cortex-a57 \
+  -m 1024 \
+  -nographic \
+  -kernel /workspaces/QEMU_ARM/sept_27_aarch64_linux/Image \
+  -initrd ~/initramfs.cpio.gz \
+  -append "console=ttyAMA0 rdinit=/init"
+
+To exit ctrl+a release then x
+
+tmux new -s build
+
+git clone https://github.com/mirror/busybox.git
+cd busybox
+make defconfig
+make ARCH=arm64 \
+     CROSS_COMPILE=aarch64-linux-gnu- \
+     -j$(nproc)
