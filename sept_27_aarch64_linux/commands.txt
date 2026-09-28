@@ -1,0 +1,14 @@
+sudo apt update
+
+sudo apt install -y \
+qemu-system-arm \
+qemu-system-misc \
+qemu-utils \
+gcc-aarch64-linux-gnu \
+binutils-aarch64-linux-gnu \
+build-essential \
+git \
+wget \
+curl \
+tree \
+busybox-static
